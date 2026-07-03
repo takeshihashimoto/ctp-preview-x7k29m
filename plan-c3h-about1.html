@@ -95,7 +95,8 @@ ul{list-style:none}
 .gnav{margin-left:auto}
 .gnav ul{display:flex;align-items:center;gap:26px}
 .gnav a{
-  font-size:14px;font-weight:500;color:var(--ink);
+  font-size:13.5px;/* ナビのみ14px床の例外（許容済み） */
+  font-weight:500;color:var(--ink);
   padding:6px 0;position:relative;white-space:nowrap;
   transition:color .25s ease;
 }
@@ -343,9 +344,11 @@ ul{list-style:none}
 }
 
 /* ---------- responsive ---------- */
-@media (max-width:1024px){
-  .gnav ul{gap:18px}
-  .gnav a{font-size:14px}
+@media (max-width:1280px){
+  .gnav ul{gap:14px}
+  .header-inner{gap:14px;padding:0 18px}
+  .header-cta{gap:8px}
+  .header-cta .pill-sm{padding:.7em 1.15em}
 }
 @media (max-width:900px){
   .card-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
@@ -353,8 +356,8 @@ ul{list-style:none}
   .about-inner{grid-template-columns:1fr;gap:40px}
   .about-art{order:-1;max-width:520px;margin:0 auto}
 }
-/* 最小14pxルールによりナビ縮小ではなく1180pxでハンバーガー化 */
-@media (max-width:1180px){
+/* ナビ13.5px許容＋余白圧縮により1000pxまでフルナビ表示 */
+@media (max-width:1000px){
   .nav-toggle{display:flex}
   .header-cta{display:none}
   .gnav{
