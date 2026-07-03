@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コミクスTOPページ リデザイン案 比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Noto Sans JP",sans-serif; background:#F4F5F7; color:#1C1F24; padding:48px 24px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  h1 { font-size:26px; margin-bottom:8px; }
+  .sub { color:#6B7076; font-size:14px; margin-bottom:36px; }
+  h2.round { font-size:17px; margin:40px 0 16px; padding-left:12px; border-left:4px solid #F0662B; }
+  h2.round span { color:#6B7076; font-weight:400; font-size:13px; margin-left:10px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+  a.card { display:block; background:#fff; border-radius:12px; overflow:hidden; text-decoration:none; color:inherit;
+           border:1px solid #E4E6EA; transition:transform .15s ease, box-shadow .15s ease; }
+  a.card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.10); }
+  a.card.dim { opacity:.6; }
+  .thumb { height:150px; background-size:cover; background-position:center right; }
+  .thumb.a { background-color:#0F1B33; background-image:url("assets/hero-a.png"); }
+  .thumb.b { background-color:#FAFAF7; background-image:url("assets/hero-b.png"); border-bottom:1px solid #EEE; }
+  .thumb.c { background-color:#FFF6EE; background-image:url("assets/hero-c.png"); border-bottom:1px solid #FEE; }
+  .thumb.c1 { background-color:#FFFFFF; background-image:url("assets/hero-c1.png"); border-bottom:1px solid #EEE; }
+  .thumb.c2 { background:radial-gradient(circle at 30% 40%, rgba(108,75,158,.45), transparent 55%),
+              radial-gradient(circle at 62% 30%, rgba(0,168,176,.45), transparent 55%),
+              radial-gradient(circle at 50% 75%, rgba(245,193,59,.5), transparent 55%),
+              radial-gradient(circle at 80% 60%, rgba(240,102,43,.5), transparent 55%),
+              radial-gradient(circle at 88% 25%, rgba(192,57,142,.4), transparent 50%), #fff;
+              border-bottom:1px solid #EEE; }
+  .thumb.c3 { background-color:#FFFFFF; background-image:url("assets/hero-c3.png"); border-bottom:1px solid #EEE; }
+  .body { padding:20px 22px 24px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.12em; padding:3px 10px; border-radius:99px; margin-bottom:10px; }
+  .tag.o { background:#FDEADD; color:#E4551A; }
+  .tag.n { background:#0F1B33; color:#C9A55C; }
+  .tag.k { background:#16181D; color:#fff; }
+  h3 { font-size:17px; margin-bottom:6px; }
+  p { font-size:13px; color:#555A61; line-height:1.7; }
+  .note { margin-top:36px; font-size:12.5px; color:#8A8F96; line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>コミクス コーポレートサイト TOPページ リデザイン案</h1>
+  <div class="sub">最終更新 2026-07-04 ／ カードをクリックするとフルページモックが開きます</div>
+
+  <h2 class="round">最終調整: ABOUT画像の見比べ（C-3h確定版ボディ）<span>サービスカードはロゴのみ表示に更新済み。<a href="about-variants.html" style="color:#E4551A">画像単体の4案比較はこちら</a></span></h2>
+  <div class="grid">
+    <a class="card" href="plan-c3h.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/about-c2.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3h（現行）</span>
+        <h3>ABOUT=ご縁のネットワーク</h3>
+        <p>中央の握手から人々へご縁が広がる現行イラストのまま。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3h-about1.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/about-c3.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3h × 案1</span>
+        <h3>ABOUT=一点集中</h3>
+        <p>経営資源が中央のAI頭脳へ収束。「AI事業領域に一点集中」を直接可視化。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3h-about3.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/about-c5.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3h × 案3</span>
+        <h3>ABOUT=人とAIの握手</h3>
+        <p>人間の手×回路のAIの手。「ご縁をつなぐ」とAI集中の両立。</p>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="round">第3ラウンド: C-3ベース FVバリエーション<span>【C-3h案で決定（2026-07-04）】アカデミーカード本文はacademy_cp LP準拠に更新済み</span></h2>
+  <div class="grid">
+    <a class="card" href="plan-c3a.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3a.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3a案</span>
+        <h3>やわらか曲面</h3>
+        <p>大きく丸い半透明の曲面が5色でゆったり重なる。ガラスのような透明感。3案の中間的な存在感。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3b.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3b.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3b案</span>
+        <h3>ミスト超淡彩</h3>
+        <p>輪郭が溶けた霧のような5色グラデーション。最も静かで上品、余白が主役。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3c.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3c.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3c案</span>
+        <h3>明瞭な重なり</h3>
+        <p>円形の重なりと混色をはっきり見せる版。「複数領域のカバー」の意味が最も伝わる。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3d.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3d.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3d案</span>
+        <h3>絹の横波</h3>
+        <p>シルクのようになめらかな横波レイヤーが5色でゆるやかにうねる。流れと躍動を穏やかに表現。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3e.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3e.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3e案</span>
+        <h3>浮かぶ円</h3>
+        <p>シャボン玉のような半透明の円が大小浮かぶ。円＝縁の象徴で、軽やかさと親しみが最も強い。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3f.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3f.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3f案</span>
+        <h3>ご縁の波紋</h3>
+        <p>水面の波紋のような同心円が5色で広がる。「ご縁が広がる」メタファーが最も明確で構図に求心力。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3g.html">
+      <div class="thumb" style="background-color:#FFF6EE;background-image:url('assets/hero-c.png');border-bottom:1px solid #FEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3g案</span>
+        <h3>オリジナル曲線（plan-cのFV）</h3>
+        <p>最初に気に入っていただいたC案のオレンジ曲線FVを、確定済みC-3ボディにそのまま搭載。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3h.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3h.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3h案（決定）</span>
+        <h3>オレンジ主体＋多色の気配</h3>
+        <p>plan-cの曲線と存在感を保ちつつ、縁や重なりに他4色がほのかに差す。原案に最も近い多色化。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3i.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3i.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3i案</span>
+        <h3>オーロラの光</h3>
+        <p>形の輪郭を持たない、1枚の大きな光のグラデーション。「色」だけで多様な領域を表現。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3j.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3j.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3j案</span>
+        <h3>ご縁の線と点</h3>
+        <p>極細ラインのネットワークに5色の結節点。ABOUTの握手ラインアートと世界観が揃う、最も軽やかで知的な案。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3k.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3k.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3k案</span>
+        <h3>実写風オフィス</h3>
+        <p>明るいオフィスのソフトフォーカス写真調。抽象ではなく「働く現場の空気」で信頼感を出す王道ビジネス路線。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3l.html">
+      <div class="thumb" style="background-color:#fff;background-image:url('assets/hero-c3l.png');border-bottom:1px solid #EEE;"></div>
+      <div class="body">
+        <span class="tag o">C-3l案</span>
+        <h3>幾何学アーク</h3>
+        <p>四分円・円環のパーツが整然と並ぶ構築的デザイン。ロゴの環を想起させる。彩度は要調整可。</p>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="round">第2ラウンド: C案ベース バリエーション<span>C-3案が選定されました（2026-07-04）</span></h2>
+  <div class="grid">
+    <a class="card" href="plan-c1.html">
+      <div class="thumb c1"></div>
+      <div class="body">
+        <span class="tag o">C-1案</span>
+        <h3>淡彩マルチカラー</h3>
+        <p>FV画像を5色（紫・青緑・黄・橙・紅）の淡い曲面グラデーションに。UIはC案のオレンジ基調を維持する、最も上品で控えめな展開。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c2.html">
+      <div class="thumb c2"></div>
+      <div class="body">
+        <span class="tag o">C-2案</span>
+        <h3>ロゴリング幾何学</h3>
+        <p>FVをCSS描画の重なり合う5色の円＋ロゴを想起させるリングで構成。現行HPの円形ダイアグラムの記憶を抽象的に継承。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c3.html">
+      <div class="thumb c3"></div>
+      <div class="body">
+        <span class="tag o">C-3案</span>
+        <h3>ブランドスペクトラム</h3>
+        <p>虹色リボンのFV＋サービス別アクセントカラー＋多色グラデーションのCTA帯。マルチカラーをUI全体に展開する最もカラフルな案。</p>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="round">第1ラウンド: 方向性3案<span>C案が選定されました（2026-07-03）</span></h2>
+  <div class="grid">
+    <a class="card dim" href="plan-a.html">
+      <div class="thumb a"></div>
+      <div class="body">
+        <span class="tag n">A案</span>
+        <h3>ネイビー×ゴールド エグゼクティブ</h3>
+        <p>深紺×金の重厚路線。明朝見出しで信頼感を演出。</p>
+      </div>
+    </a>
+    <a class="card dim" href="plan-b.html">
+      <div class="thumb b"></div>
+      <div class="body">
+        <span class="tag k">B案</span>
+        <h3>モノトーン×1色 ミニマルAIテック</h3>
+        <p>白基調＋大きな余白＋タイポグラフィ階層。</p>
+      </div>
+    </a>
+    <a class="card" href="plan-c.html">
+      <div class="thumb c"></div>
+      <div class="body">
+        <span class="tag o">C案（選定・ベース）</span>
+        <h3>現ブランド洗練化</h3>
+        <p>白×オレンジ維持、カード型・余白設計で現代化。第2ラウンドのベース。</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="note">
+    画像はすべて Codex Image 2.0 で新規生成。実績数値・文言は現行サイト（2026年5月末現在）から転記。<br>
+    コミクスアカデミーカードの本文は現行サイト＋プレスリリース（2026.06.22）由来の提案コピー（要承認）。
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B案 ミニマルAIテック | コミクスTOPリデザイン案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   B案: モノトーン×アクセント1色 ミニマルAIテック
+   tokens: ink #16181D / sub #6B7076 / line #E8E8E4 /
+           offwhite #FAFAF7 / accent #F0662B
+   ============================================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:      #16181D;
+  --ink-2:    #6B7076;
+  --line:     #E8E8E4;
+  --paper:    #FFFFFF;
+  --paper-2:  #FAFAF7;
+  --accent:   #F0662B;
+  --accent-d: #D8551C;
+  --font:     "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: system-ui, -apple-system, "Segoe UI", "Noto Sans JP", sans-serif;
+  --header-h: 76px;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  background: var(--paper);
+  padding-top: var(--header-h);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- section label (Service / Results / About / News) ---------- */
+.sec-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.sec-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+
+.sec-head { margin-bottom: 56px; }
+.sec-head h2 {
+  margin-top: 18px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- buttons / text links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 34px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  border: 1px solid transparent;
+  transition: background-color .22s ease, color .22s ease, border-color .22s ease, transform .22s ease;
+}
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: var(--accent-d); transform: translateY(-1px); }
+.btn-ghost-dark {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.btn-ghost-dark:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+.textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color .2s ease;
+}
+.textlink .arw { transition: transform .2s ease; font-family: var(--font-num); }
+.textlink:hover { color: var(--accent); }
+.textlink:hover .arw { transform: translateX(4px); }
+
+/* ============================================================
+   header
+   ============================================================ */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+/* logo — assets/comix-logo.svg（横長ロックアップ）をそのまま表示 */
+.brand { display: inline-flex; align-items: center; flex: none; }
+.brand-logo { height: 30px; width: auto; }
+
+.site-nav { margin-left: auto; }
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 1.8vw, 26px);
+}
+.site-nav a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--ink);
+  transition: color .2s ease;
+}
+.site-nav a:hover { color: var(--accent); }
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: none;
+}
+.header-cta .line-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color .2s ease;
+}
+.header-cta .line-link:hover { color: var(--accent); }
+.header-cta .btn { padding: 12px 26px; font-size: 13px; }
+
+/* hamburger */
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform .25s ease, top .25s ease;
+}
+.nav-toggle span:nth-child(1) { top: 17px; }
+.nav-toggle span:nth-child(2) { top: 25px; }
+body.nav-open .nav-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+body.nav-open .nav-toggle span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
+
+/* ============================================================
+   hero
+   ============================================================ */
+.hero { padding: clamp(64px, 9vw, 120px) 0 0; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(34px, 4.7vw, 60px);
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.02em;
+}
+.hero-lead {
+  margin-top: 30px;
+  max-width: 34em;
+  font-size: clamp(14px, 1.35vw, 16px);
+  line-height: 2.1;
+  color: var(--ink-2);
+}
+.hero-actions {
+  margin-top: 44px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+}
+
+/* hero visual — 画像が無くても淡いブルーグレーのパネルとして成立させる */
+.hero-visual {
+  align-self: stretch;
+  min-height: 380px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background-color: #E6ECF2; /* fallback */
+  background-image: url("assets/hero-b.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* hero stats */
+.hero-stats { margin-top: clamp(56px, 7vw, 96px); }
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+.hero-stat {
+  padding: 34px 32px 10px;
+  border-left: 1px solid var(--line);
+}
+.hero-stat:first-child { border-left: 0; padding-left: 0; }
+.stat-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+.stat-value {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-num);
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.stat-value .unit {
+  font-family: var(--font);
+  font-size: 0.42em;
+  font-weight: 700;
+  margin-left: 4px;
+  letter-spacing: 0.02em;
+}
+.stats-note {
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.hero-end {
+  margin-top: clamp(56px, 7vw, 96px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ============================================================
+   service
+   ============================================================ */
+.service { padding: clamp(72px, 9vw, 128px) 0; }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.svc-card {
+  display: flex;
+  flex-direction: column;
+  padding: 38px 34px 34px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  transition: border-color .25s ease, transform .25s ease;
+}
+.svc-card:hover { border-color: #C9CBC6; transform: translateY(-3px); }
+.svc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+.svc-tag::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.svc-card h3 {
+  margin-top: 24px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+.svc-card p {
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 2;
+  color: var(--ink-2);
+}
+.svc-name {
+  margin-top: auto;
+  padding-top: 26px;
+}
+.svc-name span {
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   results
+   ============================================================ */
+.results { padding: 0 0 clamp(72px, 9vw, 128px); }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.result-cell {
+  padding: 42px 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.result-value {
+  display: block;
+  font-family: var(--font-num);
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.result-value .unit {
+  font-family: var(--font);
+  font-size: 0.44em;
+  font-weight: 700;
+  margin-left: 4px;
+}
+.result-value.is-accent { color: var(--accent); }
+.result-label {
+  display: block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   about
+   ============================================================ */
+.about {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background-color: var(--paper-2); /* fallback */
+  background-image: url("assets/about-b.png");
+  background-repeat: no-repeat;
+  background-position: right -120px top -60px;
+  background-size: 640px auto;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.about-body { max-width: 760px; }
+.about-quote {
+  margin-top: 18px;
+  font-size: clamp(23px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: -0.015em;
+}
+.about-text {
+  margin-top: 30px;
+  font-size: 14.5px;
+  line-height: 2.1;
+  color: var(--ink-2);
+  max-width: 40em;
+}
+.about-sign {
+  margin-top: 36px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.about-sign strong {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.about .textlink { margin-top: 34px; }
+
+/* ============================================================
+   news
+   ============================================================ */
+.news { padding: clamp(72px, 9vw, 128px) 0; }
+.news-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.news-head .sec-head { margin-bottom: 0; }
+.news-list { border-top: 1px solid var(--line); }
+.news-list li { border-bottom: 1px solid var(--line); }
+.news-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 36px;
+  padding: 26px 8px;
+  transition: background-color .2s ease;
+}
+.news-list a:hover { background: var(--paper-2); }
+.news-date {
+  flex: none;
+  width: 92px;
+  font-family: var(--font-num);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.news-title {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.9;
+  color: var(--ink);
+  transition: color .2s ease;
+}
+.news-list a:hover .news-title { color: var(--accent); }
+
+/* ============================================================
+   cta band (黒)
+   ============================================================ */
+.cta-band {
+  background: var(--ink);
+  color: #fff;
+  padding: clamp(80px, 10vw, 130px) 0;
+  text-align: center;
+}
+.cta-band h2 {
+  font-size: clamp(26px, 3.8vw, 44px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.cta-band-actions {
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+}
+
+/* ============================================================
+   footer
+   ============================================================ */
+.site-footer { padding: 56px 0 48px; background: var(--paper); }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+}
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+.footer-nav a {
+  font-size: 13px;
+  color: var(--ink-2);
+  transition: color .2s ease;
+}
+.footer-nav a:hover { color: var(--accent); }
+.copyright {
+  font-family: var(--font-num);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   design-mock badge
+   ============================================================ */
+.mock-badge {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 200;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(22, 24, 29, 0.62);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-num);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+/* ============================================================
+   responsive
+   ============================================================ */
+@media (max-width: 1139px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    display: none;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 32px 32px;
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+  }
+  body.nav-open .site-nav { display: block; }
+  .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .site-nav li { border-bottom: 1px solid var(--line); }
+  .site-nav a {
+    display: block;
+    padding: 15px 4px;
+    font-size: 14px;
+  }
+  .header-cta { display: none; }
+  /* モバイルメニュー内CTA */
+  .site-nav .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 4px 0;
+    border-bottom: 0;
+  }
+  .site-nav .nav-cta a { display: inline-flex; padding: 0; }
+  .site-nav .nav-cta .btn { padding: 13px 28px; font-size: 13px; color: #fff; }
+  .site-nav .nav-cta .btn:hover { color: #fff; }
+}
+
+@media (min-width: 1140px) {
+  .site-nav .nav-cta { display: none; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .header-inner { padding: 0 20px; }
+  :root { --header-h: 64px; }
+  .brand-logo { height: 25px; }
+
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: clamp(30px, 8.6vw, 40px); }
+  .hero-visual { min-height: 0; aspect-ratio: 16 / 10; }
+  .hero-actions { gap: 14px 24px; }
+
+  .hero-stats-grid { grid-template-columns: 1fr; border-top: 0; }
+  .hero-stat {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 24px 0 8px;
+  }
+  .hero-stat:first-child { border-top: 1px solid var(--line); }
+
+  .service-grid { grid-template-columns: 1fr; gap: 16px; }
+  .svc-card { padding: 30px 26px 26px; }
+
+  .results-grid { grid-template-columns: 1fr; }
+  .result-cell { padding: 30px 26px; }
+
+  .about { background-size: 480px auto; background-position: right -180px top -80px; }
+
+  .news-list a { flex-direction: column; gap: 6px; padding: 22px 4px; }
+  .news-date { width: auto; }
+  .news-head { flex-direction: column; align-items: flex-start; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= header ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" aria-label="COMIX トップページ">
+      <img src="assets/comix-logo.svg" alt="COMIX" class="brand-logo">
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="#">主要サービス</a></li>
+        <li><a href="#">プレスリリース</a></li>
+        <li><a href="#">会社概要</a></li>
+        <li><a href="#">代表挨拶</a></li>
+        <li><a href="#">役員紹介</a></li>
+        <li><a href="#">企業理念</a></li>
+        <li><a href="#">コミクスアカデミー</a></li>
+        <li class="nav-cta">
+          <a href="#" class="line-link">LINE登録</a>
+          <a href="#" class="btn btn-accent">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a href="#" class="line-link">LINE登録</a>
+      <a href="#" class="btn btn-accent">お問い合わせ</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="メニュー">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= hero ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>ご縁をつなぐことで<br>企業の成長に貢献する</h1>
+          <p class="hero-lead">生成AI活用支援・AI人材育成・営業DX。<br class="lead-br">中小企業の経営に、AIの実装力を。</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-accent">サービスを見る</a>
+            <a href="#" class="textlink">会社概要 <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stats-grid">
+          <div class="hero-stat">
+            <span class="stat-label">取引実績 企業数</span>
+            <span class="stat-value">1,820<span class="unit">社</span></span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-label">BtoB事業者支援実績 企業数</span>
+            <span class="stat-value">1,476<span class="unit">社</span></span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-label">超大型ハイブリッド展示会 参加合計人数</span>
+            <span class="stat-value">21,139<span class="unit">人</span></span>
+          </div>
+        </div>
+        <p class="stats-note">［2026年5月末現在］</p>
+      </div>
+      <div class="hero-end"></div>
+    </div>
+  </section>
+
+  <!-- ================= service ================= -->
+  <section class="service">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Service</span>
+        <h2>3つの事業で、企業のAI活用を支える</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="svc-card">
+          <span class="svc-tag">業務の生産性向上</span>
+          <h3>生成AI活用支援パックで中小企業のDX推進を一括解決</h3>
+          <p>中小企業が抱える「人材確保と育成」「経営相談相手の不足」「デジタル化への対応」という3つの課題を、生成AI活用支援パックが一括で解決します。生成AI導入に精通したプロ講師による伴走支援を提供します。</p>
+        </article>
+
+        <article class="svc-card">
+          <span class="svc-tag">AI営業支援</span>
+          <h3>実績あるトップ営業ノウハウをAIで実践できる</h3>
+          <p>BtoB領域のトップ営業マンの知識・経験をAIが集約し、24時間365日あなたの営業活動をサポート。LINEで質問するだけで、商談前の準備から提案力強化まで、具体的なアドバイスを提供します。</p>
+          <div class="svc-name"><span>トップ営業なれるくん</span></div>
+        </article>
+
+        <article class="svc-card">
+          <span class="svc-tag">DX支援</span>
+          <h3>データドリブンなマーケティング組織構築のご支援</h3>
+          <p>インハウスでのマーケティング組織を強化したい企業様に、短期解決型と長期育成型のサービスをご用意。組織のフェーズに合わせ適切なソリューションを提案します。</p>
+          <div class="svc-name"><span>デジパラ</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= results ================= -->
+  <section class="results">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Results</span>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-cell">
+          <span class="result-value">1,820<span class="unit">社</span></span>
+          <span class="result-label">取引実績企業数</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-value">1,476<span class="unit">社</span></span>
+          <span class="result-label">BtoB事業者支援実績</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-value">4,293<span class="unit">億円</span></span>
+          <span class="result-label">改善後総金額</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-value">98.9<span class="unit">%</span></span>
+          <span class="result-label">運用人材育成の成功企業</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-value">100<span class="unit">%</span></span>
+          <span class="result-label">スペシャリストアサイン成功率</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-value is-accent">+138.2<span class="unit">%</span></span>
+          <span class="result-label">平均CVR改善率</span>
+        </div>
+      </div>
+      <p class="stats-note">（2026年5月末現在）</p>
+    </div>
+  </section>
+
+  <!-- ================= about ================= -->
+  <section class="about">
+    <div class="container">
+      <div class="about-body">
+        <span class="sec-label">About</span>
+        <p class="about-quote">今年もAI事業領域に一点集中していく所存です。</p>
+        <p class="about-text">AI人材育成サービス『トップ営業なれるくん』、リスキリング研修（DX研修・生成AI研修・GX研修）を新たに立ち上げ、AI事業領域へ経営資源を集中しています。</p>
+        <p class="about-sign">株式会社コミクス 代表取締役社長<strong>鈴木章裕</strong></p>
+        <a href="#" class="textlink">Mission詳細 <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= news ================= -->
+  <section class="news">
+    <div class="container">
+      <div class="news-head">
+        <div class="sec-head">
+          <span class="sec-label">News</span>
+        </div>
+        <a href="#" class="textlink">NEWS一覧へ <span class="arw">&rarr;</span></a>
+      </div>
+
+      <ul class="news-list">
+        <li>
+          <a href="#">
+            <time class="news-date" datetime="2026-06-26">2026.06.26</time>
+            <p class="news-title">コミクス、生成AI活用支援『販売パートナー制度』を開始 ── 受注額の10%を継続還元、士業・コンサル業・SIerなどの"顧問先・取引先のAI迷子"を救う新エコシステム</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <time class="news-date" datetime="2026-06-22">2026.06.22</time>
+            <p class="news-title">【コミクスアカデミー】最短3分で自社専用の生成AI研修カリキュラムと助成金見積を自動提案する新機能を追加</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <time class="news-date" datetime="2026-06-19">2026.06.19</time>
+            <p class="news-title">経営者会食150回突破記念：決裁者と直接つながる「鈴木顧問light」提供開始</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= cta band ================= -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>生成AI活用の第一歩を、コミクスと。</h2>
+      <div class="cta-band-actions">
+        <a href="#" class="btn btn-accent">お問い合わせ</a>
+        <a href="#" class="btn btn-ghost-dark">LINE登録</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= footer ================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <ul>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">プレスリリース</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&copy; COMIX,inc.</p>
+  </div>
+</footer>
+
+<div class="mock-badge" aria-hidden="true">DESIGN MOCK — B案</div>
+
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var open = document.body.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.site-nav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.body.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

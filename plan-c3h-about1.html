@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C-3h案 ABOUT=案1 一点集中 | コミクスTOPリデザイン案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --cream:#FFF6EE;
+  --cream-soft:#FFF9F4;
+  --ink:#2A2E35;
+  --ink-2:#7A7E85;
+  --orange:#F0662B;
+  --orange-deep:#E4551A;
+  --line-green:#06C755;
+  /* C-3 brand spectrum palette */
+  --purple:#6C4B9E;
+  --teal:#00A8B0;
+  --yellow:#F5C13B;
+  --magenta:#C0398E;
+  --spectrum:linear-gradient(90deg,#6C4B9E 0%,#00A8B0 25%,#F5C13B 50%,#F0662B 75%,#C0398E 100%);
+  --radius-card:20px;
+  --shadow-card:0 8px 30px rgba(240,102,43,0.08);
+  --shadow-card-hover:0 14px 40px rgba(240,102,43,0.14);
+  --max-w:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-weight:400;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:.02em;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+
+/* ---------- pills / buttons ---------- */
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  border-radius:999px;font-weight:700;line-height:1;
+  padding:.95em 2.2em;font-size:15px;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+.pill-orange{background:var(--orange);color:#fff}
+.pill-orange:hover{background:var(--orange-deep);box-shadow:0 6px 18px rgba(240,102,43,.28);transform:translateY(-1px)}
+.pill-line{background:var(--line-green);color:#fff}
+.pill-line:hover{background:#05b34d;box-shadow:0 6px 18px rgba(6,199,85,.28);transform:translateY(-1px)}
+.pill-ghost{background:#fff;color:var(--orange);border-color:var(--orange)}
+.pill-ghost:hover{background:var(--orange);color:#fff;transform:translateY(-1px)}
+.pill-white{background:#fff;color:var(--orange)}
+.pill-white:hover{background:#FFF1E8;transform:translateY(-1px)}
+.pill-white-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.85)}
+.pill-white-line:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-1px)}
+.pill-sm{padding:.75em 1.5em;font-size:13.5px}
+
+/* ---------- section commons ---------- */
+.section{padding:96px 0}
+.sec-label{
+  display:inline-block;font-size:13px;font-weight:700;letter-spacing:.22em;
+  color:var(--orange);text-transform:uppercase;margin-bottom:14px;
+}
+/* C-3: spectrum accent line on section labels */
+.sec-label::after{
+  content:"";display:inline-block;width:44px;height:3px;
+  background:var(--spectrum);
+  border-radius:2px;margin-left:12px;vertical-align:middle;
+}
+.sec-title{font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.5;letter-spacing:.03em}
+.sec-note{font-size:12px;color:var(--ink-2)}
+
+/* ---------- header ---------- */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(42,46,53,.06);
+}
+.header-inner{
+  max-width:1280px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;gap:24px;height:72px;
+}
+.logo{display:flex;align-items:center;flex-shrink:0}
+.logo img{height:34px;width:auto}
+.gnav{margin-left:auto}
+.gnav ul{display:flex;align-items:center;gap:26px}
+.gnav a{
+  font-size:13.5px;font-weight:500;color:var(--ink);
+  padding:6px 0;position:relative;white-space:nowrap;
+  transition:color .25s ease;
+}
+.gnav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
+  background:var(--orange);border-radius:2px;
+  transform:scaleX(0);transform-origin:left;transition:transform .25s ease;
+}
+.gnav a:hover{color:var(--orange)}
+.gnav a:hover::after{transform:scaleX(1)}
+.header-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-toggle{
+  display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;
+}
+.nav-toggle span{
+  display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;
+  transition:transform .3s ease,opacity .3s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:176px 0 110px;
+  background-color:#FFFFFF;
+}
+.hero-art{
+  position:absolute;top:0;right:0;bottom:0;width:56%;
+  background-color:#F8F5FC; /* fallback while hero-c3.png is being generated */
+  background-image:url("assets/hero-c3h.png");
+  background-size:cover;background-position:center right;background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 30%,#000 60%);
+  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 30%,#000 60%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+.hero-copy{max-width:640px}
+.hero-title{
+  font-size:clamp(30px,4.6vw,50px);font-weight:700;line-height:1.42;
+  letter-spacing:.04em;margin-bottom:22px;
+}
+.hero-title .accent{color:var(--orange)}
+.hero-sub{
+  font-size:clamp(14px,1.6vw,16.5px);color:var(--ink-2);font-weight:500;
+  margin-bottom:36px;line-height:2;
+}
+.hero-actions{margin-bottom:52px}
+
+.hero-stats{
+  background:#fff;border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+  border:1px solid rgba(240,102,43,.07);
+  padding:32px 36px 24px;
+  max-width:860px;
+}
+.hero-stats-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px 32px;
+}
+.hero-stat{position:relative;padding:4px 0}
+.hero-stat + .hero-stat::before{
+  content:"";position:absolute;left:-16px;top:12%;bottom:12%;width:1px;
+  background:rgba(42,46,53,.1);
+}
+.hero-stat .label{
+  font-size:12.5px;font-weight:500;color:var(--ink-2);line-height:1.6;
+  display:block;margin-bottom:6px;
+}
+.hero-stat .num{
+  font-size:clamp(28px,3.2vw,38px);font-weight:700;color:var(--orange);
+  line-height:1.1;letter-spacing:.01em;
+}
+.hero-stat .unit{font-size:.5em;font-weight:700;color:var(--ink);margin-left:2px}
+.hero-stats-note{
+  margin-top:14px;padding-top:12px;border-top:1px dashed rgba(42,46,53,.12);
+  font-size:11.5px;color:var(--ink-2);text-align:right;
+}
+
+/* ---------- service ---------- */
+.service{background:var(--cream)}
+.sec-head{margin-bottom:48px}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc-card{
+  background:#fff;border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+  padding:36px 30px 30px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  transition:box-shadow .3s ease,transform .3s ease;
+}
+/* C-3: per-service accent bar on card top edge */
+.svc-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--accent,var(--orange));
+}
+.svc-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-4px)}
+.svc-tag{
+  align-self:flex-start;
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--orange);background:rgba(240,102,43,.09);
+  border:1px solid rgba(240,102,43,.25);
+  border-radius:999px;padding:.45em 1.2em;margin-bottom:20px;
+}
+.svc-title{font-size:19px;font-weight:700;line-height:1.6;margin-bottom:16px;letter-spacing:.02em}
+.svc-body{font-size:14px;color:var(--ink-2);line-height:1.95;flex:1}
+.svc-name{
+  margin-top:22px;padding-top:18px;border-top:1px solid rgba(42,46,53,.08);
+}
+.svc-logo{
+  display:block;height:44px;width:auto;max-width:100%;
+}
+
+/* C-3: service accent variations */
+.svc-card--teal{--accent:var(--teal)}
+.svc-card--teal .svc-tag{
+  color:#00838A;background:rgba(0,168,176,.08);border-color:rgba(0,168,176,.3);
+}
+.svc-card--magenta{--accent:var(--magenta)}
+.svc-card--magenta .svc-tag{
+  color:#AC3380;background:rgba(192,57,142,.08);border-color:rgba(192,57,142,.3);
+}
+.svc-card--purple{--accent:var(--purple)}
+.svc-card--purple .svc-tag{
+  color:var(--purple);background:rgba(108,75,158,.08);border-color:rgba(108,75,158,.3);
+}
+
+/* ---------- results ---------- */
+.results{background:#fff}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.result-card{
+  background:#fff;border-radius:16px;
+  box-shadow:var(--shadow-card);
+  border:1px solid rgba(240,102,43,.08);
+  padding:30px 24px;text-align:center;
+  transition:box-shadow .3s ease,transform .3s ease;
+}
+.result-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-3px)}
+.result-card .num{
+  font-size:clamp(30px,3.4vw,40px);font-weight:700;color:var(--orange);
+  line-height:1.15;letter-spacing:.01em;display:block;margin-bottom:8px;
+}
+.result-card .num .unit{font-size:.5em;margin-left:2px;color:var(--ink)}
+.result-card .desc{font-size:13.5px;font-weight:500;color:var(--ink-2);line-height:1.6}
+.results-note{margin-top:24px;text-align:right}
+
+/* ---------- about ---------- */
+.about{background:var(--cream-soft)}
+.about-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;
+}
+.about-quote{
+  font-size:clamp(21px,2.8vw,28px);font-weight:700;line-height:1.7;
+  letter-spacing:.03em;margin-bottom:24px;position:relative;
+  padding-left:22px;
+}
+/* C-3: vertical spectrum bar on the quote */
+.about-quote::before{
+  content:"";position:absolute;left:0;top:.35em;bottom:.35em;width:4px;
+  border-radius:4px;
+  background:linear-gradient(180deg,#6C4B9E 0%,#00A8B0 25%,#F5C13B 50%,#F0662B 75%,#C0398E 100%);
+}
+.about-text{font-size:14.5px;color:var(--ink-2);line-height:2.05;margin-bottom:26px}
+.about-sign{font-size:14px;font-weight:700;margin-bottom:34px}
+.about-sign .sign-company{font-size:12px;font-weight:500;color:var(--ink-2);display:block;margin-bottom:2px}
+.about-art{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius-card);
+  background-color:#FFFFFF;
+  background-image:url("assets/about-c3.png");
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  box-shadow:var(--shadow-card);
+  border:1px solid rgba(42,46,53,.08);
+}
+
+/* ---------- news ---------- */
+.news{background:#fff}
+.news-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+  margin-bottom:40px;flex-wrap:wrap;
+}
+.news-list{border-top:1px solid rgba(42,46,53,.09)}
+.news-item{border-bottom:1px solid rgba(42,46,53,.09)}
+.news-item a{
+  display:flex;align-items:baseline;gap:28px;
+  padding:26px 12px;
+  transition:background-color .25s ease;
+}
+.news-item a:hover{background:var(--cream-soft)}
+.news-item a:hover .news-title{color:var(--orange)}
+.news-date{
+  flex-shrink:0;font-size:13px;font-weight:700;color:var(--orange);
+  letter-spacing:.06em;font-variant-numeric:tabular-nums;
+}
+.news-title{
+  font-size:14.5px;font-weight:500;line-height:1.85;color:var(--ink);
+  transition:color .25s ease;
+}
+
+/* ---------- cta band ---------- */
+/* C-3: orange -> magenta -> purple brand gradient */
+.cta-band{
+  background:linear-gradient(105deg,var(--orange) 0%,var(--magenta) 55%,var(--purple) 100%);
+  color:#fff;padding:88px 0;text-align:center;
+}
+.cta-band h2{
+  font-size:clamp(23px,3.2vw,32px);font-weight:700;letter-spacing:.05em;
+  line-height:1.6;margin-bottom:36px;
+}
+.cta-band-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+/* ---------- footer（シンプル版: ヘッダー重複メニューは持たない） ---------- */
+.footer{background:#fff;padding:52px 0 28px;border-top:1px solid rgba(42,46,53,.07)}
+.footer-main{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px 40px;flex-wrap:wrap;margin-bottom:34px;
+}
+.footer-logo img{height:26px;width:auto}
+.footer-services{display:flex;gap:8px 28px;flex-wrap:wrap;align-items:center}
+.footer-services a{
+  font-size:13px;font-weight:500;color:var(--ink-2);
+  display:inline-block;transition:color .25s ease;
+}
+.footer-services a:hover{color:var(--orange)}
+.footer-bottom{
+  border-top:1px solid rgba(42,46,53,.08);padding-top:20px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px 24px;flex-wrap:wrap;
+}
+.footer-legal{display:flex;gap:6px 22px;flex-wrap:wrap}
+.footer-legal a{
+  font-size:11.5px;color:var(--ink-2);opacity:.85;
+  transition:color .25s ease,opacity .25s ease;
+}
+.footer-legal a:hover{color:var(--orange);opacity:1}
+.copyright{font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+
+/* ---------- mock badge ---------- */
+.mock-badge{
+  position:fixed;left:14px;bottom:14px;z-index:200;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  color:#fff;background:rgba(42,46,53,.55);
+  border-radius:999px;padding:6px 14px;
+  backdrop-filter:blur(4px);pointer-events:none;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .gnav ul{gap:18px}
+  .gnav a{font-size:12.5px}
+}
+@media (max-width:900px){
+  .card-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-art{order:-1;max-width:520px;margin:0 auto}
+}
+@media (max-width:768px){
+  .section{padding:64px 0}
+  .header-inner{height:64px;gap:12px}
+  .logo img{height:28px}
+  .nav-toggle{display:flex}
+  .header-cta{display:none}
+  .gnav{
+    position:fixed;top:64px;left:0;right:0;margin-left:0;
+    background:#fff;border-bottom:1px solid rgba(42,46,53,.08);
+    box-shadow:0 16px 30px rgba(42,46,53,.08);
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+  }
+  .gnav.is-open{max-height:70vh;overflow-y:auto}
+  .gnav ul{flex-direction:column;align-items:stretch;gap:0;padding:12px 24px 20px}
+  .gnav li{border-bottom:1px solid rgba(42,46,53,.06)}
+  .gnav li:last-child{border-bottom:none}
+  .gnav a{display:block;padding:14px 4px;font-size:14px}
+  .gnav a::after{content:none}
+  .gnav-sp-cta{
+    display:flex!important;flex-direction:column;gap:10px;
+    padding:16px 4px 4px;border-bottom:none!important;
+  }
+  .hero{padding:120px 0 72px}
+  .hero-art{
+    width:100%;opacity:.45;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 40%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 40%,#000 100%);
+  }
+  .hero-stats{padding:26px 24px 18px}
+  .hero-stats-grid{grid-template-columns:1fr;gap:18px}
+  .hero-stat + .hero-stat::before{
+    left:0;right:0;top:-9px;bottom:auto;width:auto;height:1px;
+  }
+  .results-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .result-card{padding:22px 14px}
+  .news-item a{flex-direction:column;gap:6px;padding:20px 8px}
+  .cta-band-actions .pill{width:100%;max-width:320px}
+  .footer-main{flex-direction:column;align-items:flex-start;gap:20px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:420px){
+  .results-grid{grid-template-columns:1fr}
+}
+.gnav-sp-cta{display:none}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="https://www.comix.co.jp/" class="logo" aria-label="COMIX">
+      <img src="assets/comix-logo.svg" alt="COMIX 株式会社コミクス">
+    </a>
+    <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="#service">主要サービス</a></li>
+        <li><a href="https://www.comix.co.jp/news/">プレスリリース</a></li>
+        <li><a href="https://www.comix.co.jp/company/">会社概要</a></li>
+        <li><a href="https://www.comix.co.jp/greeting/">代表挨拶</a></li>
+        <li><a href="https://www.comix.co.jp/officer/">役員紹介</a></li>
+        <li><a href="https://www.comix.co.jp/mission/">企業理念</a></li>
+        <li><a href="https://www.comix.co.jp/academy_cp/">コミクスアカデミー</a></li>
+        <li class="gnav-sp-cta">
+          <a href="https://www.comix.co.jp/line-optin/" class="pill pill-line pill-sm">LINE登録</a>
+          <a href="https://www.comix.co.jp/contact/" class="pill pill-orange pill-sm">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="https://www.comix.co.jp/line-optin/" class="pill pill-line pill-sm">LINE登録</a>
+      <a href="https://www.comix.co.jp/contact/" class="pill pill-orange pill-sm">お問い合わせ</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開閉">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-art" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h1 class="hero-title"><span class="accent">ご縁</span>をつなぐことで<br>企業の成長に貢献する</h1>
+      <p class="hero-sub">生成AI活用支援・AI人材育成・営業DX。中小企業の経営に、AIの実装力を。</p>
+      <div class="hero-actions">
+        <a href="#service" class="pill pill-orange">サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stats-grid">
+        <div class="hero-stat">
+          <span class="label">取引実績 企業数</span>
+          <span class="num">1,820<span class="unit">社</span></span>
+        </div>
+        <div class="hero-stat">
+          <span class="label">BtoB事業者支援実績 企業数</span>
+          <span class="num">1,476<span class="unit">社</span></span>
+        </div>
+        <div class="hero-stat">
+          <span class="label">超大型ハイブリッド展示会 参加合計人数</span>
+          <span class="num">21,139<span class="unit">人</span></span>
+        </div>
+      </div>
+      <p class="hero-stats-note">［2026年5月末現在］</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Service ===== -->
+<section class="section service" id="service">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">SERVICE</span>
+      <h2 class="sec-title">3つの事業で、企業のAI活用を支える</h2>
+    </div>
+    <div class="card-grid">
+      <a class="svc-card svc-card--teal" href="https://www.comix.co.jp/gogo/">
+        <span class="svc-tag">業務の生産性向上</span>
+        <h3 class="svc-title">生成AI活用支援パックで中小企業のDX推進を一括解決</h3>
+        <p class="svc-body">中小企業が抱える「人材確保と育成」「経営相談相手の不足」「デジタル化への対応」という3つの課題を、生成AI活用支援パックが一括で解決します。生成AI導入に精通したプロ講師による伴走支援を提供します。</p>
+        <p class="svc-name"><img src="assets/geneai-logo.png" alt="生成AI活用支援パック" class="svc-logo"></p>
+      </a>
+      <a class="svc-card svc-card--magenta" href="https://www.comix.co.jp/academy_cp/">
+        <span class="svc-tag">AI人材育成</span>
+        <h3 class="svc-title">生成AIを&#8220;使える人材&#8221;を育て、現場の生産性を高める</h3>
+        <p class="svc-body">生成AI・マーケ・DXを網羅する全1,100講座から、業務アンケートを起点に自社専用の学習カリキュラムを設計。AI専門家の1対1伴走で&#8220;学んで終わり&#8221;にしない実務適用まで支援します。助成金の活用で受講料の最大75%が受給可能、1名あたり月額5,000円からの低コストで全社導入できます。</p>
+        <p class="svc-name"><img src="assets/academy-logo.png" alt="コミクスアカデミー" class="svc-logo"></p>
+      </a>
+      <a class="svc-card svc-card--purple" href="https://digipara.comix.co.jp/">
+        <span class="svc-tag">DX支援</span>
+        <h3 class="svc-title">データドリブンなマーケティング組織構築のご支援</h3>
+        <p class="svc-body">インハウスでのマーケティング組織を強化したい企業様に、短期解決型と長期育成型のサービスをご用意。組織のフェーズに合わせ適切なソリューションを提案します。</p>
+        <p class="svc-name"><img src="assets/digipara-logo.png" alt="デジパラ" class="svc-logo"></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Results ===== -->
+<section class="section results">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">RESULTS</span>
+      <h2 class="sec-title">数字で見るコミクス</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <span class="num">1,820<span class="unit">社</span></span>
+        <span class="desc">取引実績企業数</span>
+      </div>
+      <div class="result-card">
+        <span class="num">1,476<span class="unit">社</span></span>
+        <span class="desc">BtoB事業者支援実績</span>
+      </div>
+      <div class="result-card">
+        <span class="num">4,293<span class="unit">億円</span></span>
+        <span class="desc">改善後総金額</span>
+      </div>
+      <div class="result-card">
+        <span class="num">98.9<span class="unit">%</span></span>
+        <span class="desc">運用人材育成の成功企業</span>
+      </div>
+      <div class="result-card">
+        <span class="num">100<span class="unit">%</span></span>
+        <span class="desc">スペシャリストアサイン成功率</span>
+      </div>
+      <div class="result-card">
+        <span class="num">+138.2<span class="unit">%</span></span>
+        <span class="desc">平均CVR改善率</span>
+      </div>
+    </div>
+    <p class="sec-note results-note">（2026年5月末現在）</p>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">ABOUT</span>
+    </div>
+    <div class="about-inner">
+      <div class="about-copy">
+        <p class="about-quote">「今年もAI事業領域に一点集中していく所存です。」</p>
+        <p class="about-text">AI人材育成サービス『トップ営業なれるくん』、リスキリング研修（DX研修・生成AI研修・GX研修）を新たに立ち上げ、AI事業領域へ経営資源を集中しています。</p>
+        <p class="about-sign"><span class="sign-company">株式会社コミクス</span>代表取締役社長　鈴木章裕</p>
+        <a href="https://www.comix.co.jp/mission/" class="pill pill-ghost">Mission詳細</a>
+      </div>
+      <div class="about-art" role="img" aria-label="一点集中を表す抽象イラスト"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== News ===== -->
+<section class="section news">
+  <div class="wrap">
+    <div class="news-head">
+      <div>
+        <span class="sec-label">NEWS</span>
+        <h2 class="sec-title">お知らせ</h2>
+      </div>
+      <a href="https://www.comix.co.jp/news/" class="pill pill-ghost pill-sm">NEWS一覧へ</a>
+    </div>
+    <ul class="news-list">
+      <li class="news-item">
+        <a href="https://www.comix.co.jp/news/20260626/">
+          <time class="news-date" datetime="2026-06-26">2026.06.26</time>
+          <span class="news-title">コミクス、生成AI活用支援『販売パートナー制度』を開始 ── 受注額の10%を継続還元、士業・コンサル業・SIerなどの&quot;顧問先・取引先のAI迷子&quot;を救う新エコシステム</span>
+        </a>
+      </li>
+      <li class="news-item">
+        <a href="https://www.comix.co.jp/news/20260622/">
+          <time class="news-date" datetime="2026-06-22">2026.06.22</time>
+          <span class="news-title">【コミクスアカデミー】最短3分で自社専用の生成AI研修カリキュラムと助成金見積を自動提案する新機能を追加</span>
+        </a>
+      </li>
+      <li class="news-item">
+        <a href="https://www.comix.co.jp/news/20260619/">
+          <time class="news-date" datetime="2026-06-19">2026.06.19</time>
+          <span class="news-title">経営者会食150回突破記念：決裁者と直接つながる「鈴木顧問light」提供開始</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CTA Band ===== -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>生成AI活用の第一歩を、コミクスと。</h2>
+    <div class="cta-band-actions">
+      <a href="https://www.comix.co.jp/contact/" class="pill pill-white">お問い合わせ</a>
+      <a href="https://www.comix.co.jp/line-optin/" class="pill pill-white-line">LINE登録</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <a href="https://www.comix.co.jp/" class="footer-logo" aria-label="COMIX">
+        <img src="assets/comix-logo.svg" alt="COMIX 株式会社コミクス">
+      </a>
+      <nav class="footer-services" aria-label="サービス">
+        <a href="https://www.comix.co.jp/gogo/">生成AI活用支援パック</a>
+        <a href="https://www.comix.co.jp/top-sales/">トップ営業なれるくん</a>
+        <a href="https://digipara.comix.co.jp/">デジパラ</a>
+        <a href="https://www.comix.co.jp/academy_cp/">コミクスアカデミー</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <nav class="footer-legal" aria-label="法務情報">
+        <a href="https://www.comix.co.jp/disclosure/">電子公告・決算公告</a>
+        <a href="https://www.comix.co.jp/contact/policy/">プライバシーポリシー</a>
+        <a href="https://www.comix.co.jp/handling-of-personal-information/">個人情報の取り扱いについて</a>
+        <a href="https://www.comix.co.jp/anti-bribery/">腐敗行為・贈収賄防止ポリシー</a>
+      </nav>
+      <p class="copyright">&copy; COMIX,inc.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mock-badge" aria-hidden="true">DESIGN MOCK — C-3h案 ABOUT案1</div>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('gnav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+</script>
+</body>
+</html>

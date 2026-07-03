@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A案 ネイビー×ゴールド | コミクスTOPリデザイン案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   A案: ネイビー×ゴールド エグゼクティブ
+   ============================================================ */
+:root{
+  --navy:#0F1B33;
+  --navy-sub:#1A2B4A;
+  --navy-deep:#0B1426;
+  --gold:#C9A55C;
+  --gold-soft:rgba(201,165,92,.35);
+  --gold-faint:rgba(201,165,92,.18);
+  --white:#FFFFFF;
+  --text-dim:#C8D0DE;
+  --light-bg:#F7F8FA;
+  --ink:#0F1B33;
+  --serif:"Noto Serif JP",serif;
+  --sans:"Noto Sans JP",sans-serif;
+  --header-h:76px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.9;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.inner{max-width:1160px;margin:0 auto;padding:0 32px}
+
+/* ---------- 英字セクションラベル ---------- */
+.sec-label{
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.25em;
+  color:var(--gold);
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:16px;
+}
+.sec-label::before{
+  content:"";
+  display:block;
+  width:32px;
+  height:1px;
+  background:var(--gold);
+}
+.sec-heading{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(24px,3.2vw,34px);
+  line-height:1.6;
+  letter-spacing:.04em;
+  margin-top:18px;
+}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.12em;
+  padding:14px 44px;
+  border-radius:2px;
+  border:1px solid var(--gold);
+  transition:background-color .3s ease,color .3s ease,border-color .3s ease;
+  text-align:center;
+}
+.btn--fill{
+  background:var(--gold);
+  color:var(--navy);
+}
+.btn--fill:hover{
+  background:transparent;
+  color:var(--gold);
+}
+.btn--ghost{
+  background:transparent;
+  color:var(--gold);
+}
+.btn--ghost:hover{
+  background:var(--gold);
+  color:var(--navy);
+}
+.btn--ghost-light{
+  background:transparent;
+  color:var(--white);
+  border-color:var(--gold);
+}
+.btn--ghost-light:hover{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+/* ============================================================
+   1. ヘッダー
+   ============================================================ */
+.site-header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  height:var(--header-h);
+  background:rgba(15,27,51,.94);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--gold-faint);
+}
+.header-inner{
+  max-width:1360px;
+  margin:0 auto;
+  height:100%;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+.brand-chip{
+  background:var(--white);
+  border-radius:4px;
+  padding:6px 12px;
+  display:flex;
+  align-items:center;
+}
+.brand-chip img{height:26px;width:auto}
+.brand-text{
+  display:none;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:.18em;
+  color:var(--white);
+}
+.brand.no-img .brand-chip{display:none}
+.brand.no-img .brand-text{display:inline}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.global-nav ul{
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+.global-nav a{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.06em;
+  color:var(--text-dim);
+  padding:6px 0;
+  border-bottom:1px solid transparent;
+  transition:color .3s ease,border-color .3s ease;
+  white-space:nowrap;
+}
+.global-nav a:hover{
+  color:var(--white);
+  border-bottom-color:var(--gold);
+}
+.header-cta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.global-nav li.nav-cta-item{display:none}
+.header-cta .btn{
+  padding:9px 20px;
+  font-size:12px;
+  letter-spacing:.1em;
+}
+
+/* ハンバーガー */
+.nav-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--gold-soft);
+  border-radius:2px;
+  width:44px;height:44px;
+  cursor:pointer;
+  position:relative;
+  flex-shrink:0;
+}
+.nav-toggle span{
+  position:absolute;
+  left:12px;right:12px;
+  height:1px;
+  background:var(--gold);
+  transition:transform .3s ease,opacity .3s ease;
+}
+.nav-toggle span:nth-child(1){top:15px}
+.nav-toggle span:nth-child(2){top:21px}
+.nav-toggle span:nth-child(3){top:27px}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ============================================================
+   2. ヒーロー
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  color:var(--white);
+  background-color:var(--navy);
+  background-image:
+    linear-gradient(rgba(15,27,51,.72),rgba(15,27,51,.55) 45%,rgba(15,27,51,.9)),
+    url("assets/hero-a.png");
+  background-size:cover;
+  background-position:center;
+  padding:calc(var(--header-h) + 72px) 0 88px;
+}
+.hero-inner{width:100%}
+.hero-copy{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(32px,4.6vw,56px);
+  line-height:1.75;
+  letter-spacing:.06em;
+}
+.hero-sub{
+  margin-top:28px;
+  font-size:clamp(14px,1.4vw,17px);
+  font-weight:400;
+  letter-spacing:.08em;
+  color:var(--text-dim);
+}
+.hero-cta{margin-top:40px}
+.hero-cta .btn{padding:15px 52px}
+
+.hero-stats{
+  margin-top:72px;
+  border-top:1px solid var(--gold-soft);
+  padding-top:36px;
+  display:flex;
+  gap:0;
+}
+.hero-stat{
+  flex:1;
+  padding:0 32px;
+  border-left:1px solid var(--gold-faint);
+}
+.hero-stat:first-child{border-left:none;padding-left:0}
+.hero-stat dt{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.14em;
+  color:var(--text-dim);
+}
+.hero-stat dd{
+  margin-top:8px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(30px,3.4vw,44px);
+  line-height:1.2;
+  color:var(--gold);
+  letter-spacing:.02em;
+}
+.hero-stat dd .unit{
+  font-size:.45em;
+  margin-left:4px;
+  color:var(--gold);
+  letter-spacing:.1em;
+}
+.hero-note{
+  margin-top:22px;
+  font-size:11px;
+  letter-spacing:.12em;
+  color:rgba(200,208,222,.65);
+}
+
+/* ============================================================
+   3. SERVICE
+   ============================================================ */
+.section{padding:110px 0}
+.sec-service{background:var(--light-bg)}
+
+.service-grid{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.service-card{
+  background:var(--white);
+  border:1px solid #E3E7EE;
+  border-top:2px solid var(--gold);
+  padding:44px 36px 40px;
+  display:flex;
+  flex-direction:column;
+  transition:box-shadow .35s ease,transform .35s ease;
+}
+.service-card:hover{
+  box-shadow:0 14px 38px rgba(15,27,51,.10);
+  transform:translateY(-3px);
+}
+.service-tag{
+  align-self:flex-start;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.16em;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  border-radius:2px;
+  padding:4px 12px;
+}
+.service-card h3{
+  margin-top:22px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:19px;
+  line-height:1.75;
+  letter-spacing:.03em;
+  color:var(--ink);
+}
+.service-card p{
+  margin-top:16px;
+  font-size:14px;
+  line-height:2;
+  color:#42506B;
+  flex:1;
+}
+.service-name{
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid var(--gold-faint);
+  font-size:12px;
+  letter-spacing:.1em;
+  color:#68738C;
+}
+.service-name strong{
+  display:block;
+  margin-top:2px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.06em;
+  color:var(--navy);
+}
+
+/* ============================================================
+   4. RESULTS 実績数値帯
+   ============================================================ */
+.sec-results{
+  background:var(--navy);
+  color:var(--white);
+  padding:96px 0;
+}
+.results-grid{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--gold-faint);
+  border:1px solid var(--gold-faint);
+}
+.result-item{
+  background:var(--navy);
+  padding:40px 28px 36px;
+  text-align:center;
+}
+.result-item .num{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(30px,3.2vw,42px);
+  line-height:1.2;
+  color:var(--gold);
+  letter-spacing:.02em;
+}
+.result-item .num .unit{
+  font-size:.5em;
+  margin-left:3px;
+  letter-spacing:.08em;
+}
+.result-item .desc{
+  margin-top:10px;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.1em;
+  color:var(--text-dim);
+}
+.results-note{
+  margin-top:26px;
+  text-align:right;
+  font-size:11px;
+  letter-spacing:.12em;
+  color:rgba(200,208,222,.65);
+}
+
+/* ============================================================
+   5. ABOUT / 代表メッセージ
+   ============================================================ */
+.sec-about{background:var(--white)}
+.about-grid{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:72px;
+  align-items:center;
+}
+.about-quote{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(22px,2.6vw,30px);
+  line-height:1.9;
+  letter-spacing:.05em;
+  color:var(--ink);
+  position:relative;
+  padding-left:26px;
+  border-left:1px solid var(--gold);
+}
+.about-text{
+  margin-top:30px;
+  font-size:15px;
+  line-height:2.1;
+  color:#42506B;
+}
+.about-sign{
+  margin-top:34px;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:#68738C;
+}
+.about-sign strong{
+  display:block;
+  margin-top:4px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:18px;
+  letter-spacing:.14em;
+  color:var(--ink);
+}
+.about-btn{margin-top:40px}
+.about-figure{
+  position:relative;
+  min-height:420px;
+  background-color:var(--navy-sub);
+  background-image:url("assets/about-a.png");
+  background-size:cover;
+  background-position:center;
+}
+.about-figure::after{
+  content:"";
+  position:absolute;
+  top:16px;left:16px;right:-16px;bottom:-16px;
+  border:1px solid var(--gold-soft);
+  pointer-events:none;
+}
+
+/* ============================================================
+   6. NEWS
+   ============================================================ */
+.sec-news{background:var(--light-bg)}
+.news-list{
+  margin-top:48px;
+  border-top:1px solid #DDE2EA;
+}
+.news-list li a{
+  display:flex;
+  align-items:baseline;
+  gap:36px;
+  padding:26px 8px;
+  border-bottom:1px solid #DDE2EA;
+  transition:background-color .3s ease;
+}
+.news-list li a:hover{background:rgba(201,165,92,.06)}
+.news-date{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:.1em;
+  color:var(--gold);
+  flex-shrink:0;
+  font-variant-numeric:tabular-nums;
+}
+.news-title{
+  font-size:14px;
+  line-height:1.9;
+  color:var(--ink);
+  transition:color .3s ease;
+}
+.news-list li a:hover .news-title{color:#5A4A22}
+.news-more{
+  margin-top:44px;
+  text-align:center;
+}
+.news-more .btn{padding:13px 56px}
+
+/* ============================================================
+   7. CTA帯
+   ============================================================ */
+.sec-cta{
+  background-color:var(--navy-deep);
+  background-image:linear-gradient(rgba(11,20,38,.4),rgba(11,20,38,.4)),
+    linear-gradient(120deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-sub) 100%);
+  color:var(--white);
+  text-align:center;
+  padding:110px 0;
+  border-top:1px solid var(--gold-faint);
+}
+.cta-heading{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(24px,3.4vw,36px);
+  letter-spacing:.08em;
+  line-height:1.8;
+}
+.cta-buttons{
+  margin-top:44px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.cta-buttons .btn{min-width:240px}
+
+/* ============================================================
+   8. フッター
+   ============================================================ */
+.site-footer{
+  background:var(--navy-deep);
+  color:var(--text-dim);
+  padding:64px 0 40px;
+  border-top:1px solid var(--gold-faint);
+}
+.footer-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:36px;
+}
+.footer-brand{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:.22em;
+  color:var(--white);
+}
+.footer-nav ul{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px 34px;
+}
+.footer-nav a{
+  font-size:12px;
+  letter-spacing:.1em;
+  color:var(--text-dim);
+  transition:color .3s ease;
+}
+.footer-nav a:hover{color:var(--gold)}
+.copyright{
+  font-size:11px;
+  letter-spacing:.14em;
+  color:rgba(200,208,222,.5);
+}
+
+/* ============================================================
+   モックバッジ
+   ============================================================ */
+.mock-badge{
+  position:fixed;
+  left:16px;
+  bottom:16px;
+  z-index:200;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.78);
+  background:rgba(15,27,51,.55);
+  border:1px solid rgba(201,165,92,.45);
+  border-radius:2px;
+  padding:6px 12px;
+  pointer-events:none;
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media (max-width:1080px){
+  .global-nav ul{gap:18px}
+  .global-nav a{font-size:12px}
+}
+@media (max-width:960px){
+  .header-cta{display:none}
+  .nav-toggle{display:block}
+  .global-nav{
+    position:fixed;
+    top:var(--header-h);
+    left:0;right:0;
+    background:rgba(15,27,51,.98);
+    border-bottom:1px solid var(--gold-faint);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+  }
+  .global-nav.open{max-height:calc(100vh - var(--header-h));overflow-y:auto}
+  .global-nav ul{
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:16px 28px 28px;
+  }
+  .global-nav li{border-bottom:1px solid rgba(200,208,222,.12)}
+  .global-nav li.nav-cta-item{display:list-item;border-bottom:none;margin-top:16px}
+  .global-nav a{
+    display:block;
+    padding:15px 4px;
+    font-size:14px;
+    border-bottom:none;
+  }
+  .global-nav .btn{
+    display:block;
+    padding:13px 20px;
+  }
+}
+@media (max-width:768px){
+  .inner{padding:0 22px}
+  .section{padding:76px 0}
+  .hero{padding:calc(var(--header-h) + 56px) 0 64px}
+  .hero-copy{line-height:1.85}
+  .hero-stats{
+    flex-direction:column;
+    gap:26px;
+    padding-top:30px;
+  }
+  .hero-stat{
+    border-left:none;
+    padding:0;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    border-bottom:1px solid var(--gold-faint);
+    padding-bottom:18px;
+  }
+  .hero-stat:last-of-type{border-bottom:none;padding-bottom:0}
+  .service-grid{grid-template-columns:1fr;gap:20px}
+  .results-grid{grid-template-columns:1fr 1fr}
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:56px;
+  }
+  .about-figure{min-height:280px}
+  .news-list li a{
+    flex-direction:column;
+    gap:6px;
+    padding:22px 4px;
+  }
+  .cta-buttons .btn{min-width:0;width:100%;max-width:340px}
+  .results-note{text-align:center}
+}
+@media (max-width:420px){
+  .results-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. ヘッダー ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="brand" id="brand">
+      <span class="brand-chip">
+        <img src="assets/comix-logo.svg" alt="COMIX" onerror="document.getElementById('brand').classList.add('no-img')">
+      </span>
+      <span class="brand-text">COMIX</span>
+    </a>
+    <div class="header-right">
+      <nav class="global-nav" id="globalNav" aria-label="グローバルナビゲーション">
+        <ul>
+          <li><a href="#">主要サービス</a></li>
+          <li><a href="#">プレスリリース</a></li>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">代表挨拶</a></li>
+          <li><a href="#">役員紹介</a></li>
+          <li><a href="#">企業理念</a></li>
+          <li><a href="#">コミクスアカデミー</a></li>
+          <li class="nav-cta-item"><a href="#" class="btn btn--ghost-light">LINE登録</a></li>
+          <li class="nav-cta-item"><a href="#" class="btn btn--fill">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="#" class="btn btn--ghost-light">LINE登録</a>
+        <a href="#" class="btn btn--fill">お問い合わせ</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="globalNav" aria-label="メニューを開閉">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2. ヒーロー ============ -->
+<section class="hero">
+  <div class="inner hero-inner">
+    <h1 class="hero-copy">ご縁をつなぐことで<br>企業の成長に貢献する</h1>
+    <p class="hero-sub">生成AI活用支援・AI人材育成・営業DX。中小企業の経営に、AIの実装力を。</p>
+    <div class="hero-cta">
+      <a href="#service" class="btn btn--fill">サービスを見る</a>
+    </div>
+    <dl class="hero-stats">
+      <div class="hero-stat">
+        <dt>取引実績 企業数</dt>
+        <dd>1,820<span class="unit">社</span></dd>
+      </div>
+      <div class="hero-stat">
+        <dt>BtoB事業者支援実績 企業数</dt>
+        <dd>1,476<span class="unit">社</span></dd>
+      </div>
+      <div class="hero-stat">
+        <dt>超大型ハイブリッド展示会 参加合計人数</dt>
+        <dd>21,139<span class="unit">人</span></dd>
+      </div>
+    </dl>
+    <p class="hero-note">［2026年5月末現在］</p>
+  </div>
+</section>
+
+<!-- ============ 3. SERVICE ============ -->
+<section class="section sec-service" id="service">
+  <div class="inner">
+    <span class="sec-label">Service</span>
+    <h2 class="sec-heading">3つの事業で、企業のAI活用を支える</h2>
+    <div class="service-grid">
+      <article class="service-card">
+        <span class="service-tag">業務の生産性向上</span>
+        <h3>生成AI活用支援パックで中小企業のDX推進を一括解決</h3>
+        <p>中小企業が抱える「人材確保と育成」「経営相談相手の不足」「デジタル化への対応」という3つの課題を、生成AI活用支援パックが一括で解決します。生成AI導入に精通したプロ講師による伴走支援を提供します。</p>
+      </article>
+      <article class="service-card">
+        <span class="service-tag">AI営業支援</span>
+        <h3>実績あるトップ営業ノウハウをAIで実践できる</h3>
+        <p>BtoB領域のトップ営業マンの知識・経験をAIが集約し、24時間365日あなたの営業活動をサポート。LINEで質問するだけで、商談前の準備から提案力強化まで、具体的なアドバイスを提供します。</p>
+        <div class="service-name">サービス名<strong>トップ営業なれるくん</strong></div>
+      </article>
+      <article class="service-card">
+        <span class="service-tag">DX支援</span>
+        <h3>データドリブンなマーケティング組織構築のご支援</h3>
+        <p>インハウスでのマーケティング組織を強化したい企業様に、短期解決型と長期育成型のサービスをご用意。組織のフェーズに合わせ適切なソリューションを提案します。</p>
+        <div class="service-name">サービス名<strong>デジパラ</strong></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. RESULTS 実績数値帯 ============ -->
+<section class="sec-results">
+  <div class="inner">
+    <span class="sec-label">Results</span>
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="num">1,820<span class="unit">社</span></div>
+        <div class="desc">取引実績企業数</div>
+      </div>
+      <div class="result-item">
+        <div class="num">1,476<span class="unit">社</span></div>
+        <div class="desc">BtoB事業者支援実績</div>
+      </div>
+      <div class="result-item">
+        <div class="num">4,293<span class="unit">億円</span></div>
+        <div class="desc">改善後総金額</div>
+      </div>
+      <div class="result-item">
+        <div class="num">98.9<span class="unit">%</span></div>
+        <div class="desc">運用人材育成の成功企業</div>
+      </div>
+      <div class="result-item">
+        <div class="num">100<span class="unit">%</span></div>
+        <div class="desc">スペシャリストアサイン成功率</div>
+      </div>
+      <div class="result-item">
+        <div class="num">+138.2<span class="unit">%</span></div>
+        <div class="desc">平均CVR改善率</div>
+      </div>
+    </div>
+    <p class="results-note">（2026年5月末現在）</p>
+  </div>
+</section>
+
+<!-- ============ 5. ABOUT / 代表メッセージ ============ -->
+<section class="section sec-about">
+  <div class="inner">
+    <span class="sec-label">About</span>
+    <div class="about-grid">
+      <div class="about-body">
+        <p class="about-quote">「今年もAI事業領域に一点集中していく所存です。」</p>
+        <p class="about-text">AI人材育成サービス『トップ営業なれるくん』、リスキリング研修（DX研修・生成AI研修・GX研修）を新たに立ち上げ、AI事業領域へ経営資源を集中しています。</p>
+        <p class="about-sign">株式会社コミクス 代表取締役社長<strong>鈴木章裕</strong></p>
+        <div class="about-btn">
+          <a href="#" class="btn btn--ghost">Mission詳細</a>
+        </div>
+      </div>
+      <div class="about-figure" role="img" aria-label="ネイビーとゴールドの上昇ラインのイメージ"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. NEWS ============ -->
+<section class="section sec-news">
+  <div class="inner">
+    <span class="sec-label">News</span>
+    <ul class="news-list">
+      <li>
+        <a href="#">
+          <time class="news-date" datetime="2026-06-26">2026.06.26</time>
+          <span class="news-title">コミクス、生成AI活用支援『販売パートナー制度』を開始 ── 受注額の10%を継続還元、士業・コンサル業・SIerなどの&#8220;顧問先・取引先のAI迷子&#8221;を救う新エコシステム</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <time class="news-date" datetime="2026-06-22">2026.06.22</time>
+          <span class="news-title">【コミクスアカデミー】最短3分で自社専用の生成AI研修カリキュラムと助成金見積を自動提案する新機能を追加</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <time class="news-date" datetime="2026-06-19">2026.06.19</time>
+          <span class="news-title">経営者会食150回突破記念：決裁者と直接つながる「鈴木顧問light」提供開始</span>
+        </a>
+      </li>
+    </ul>
+    <div class="news-more">
+      <a href="#" class="btn btn--ghost">NEWS一覧へ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. CTA帯 ============ -->
+<section class="sec-cta">
+  <div class="inner">
+    <h2 class="cta-heading">生成AI活用の第一歩を、コミクスと。</h2>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn--fill">お問い合わせ</a>
+      <a href="#" class="btn btn--ghost-light">LINE登録</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. フッター ============ -->
+<footer class="site-footer">
+  <div class="inner footer-inner">
+    <p class="footer-brand">COMIX</p>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <ul>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">プレスリリース</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&copy; COMIX,inc.</p>
+  </div>
+</footer>
+
+<!-- モックバッジ -->
+<div class="mock-badge">DESIGN MOCK — A案</div>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('globalNav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.closest('a')){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
