@@ -95,8 +95,7 @@ ul{list-style:none}
 .gnav{margin-left:auto}
 .gnav ul{display:flex;align-items:center;gap:26px}
 .gnav a{
-  font-size:13.5px;/* ナビのみ14px床の例外（許容済み） */
-  font-weight:500;color:var(--ink);
+  font-size:14px;font-weight:500;color:var(--ink);
   padding:6px 0;position:relative;white-space:nowrap;
   transition:color .25s ease;
 }
@@ -356,8 +355,8 @@ ul{list-style:none}
   .about-inner{grid-template-columns:1fr;gap:40px}
   .about-art{order:-1;max-width:520px;margin:0 auto}
 }
-/* ナビ13.5px許容＋余白圧縮＋「サービス」短縮により960pxまでフルナビ表示 */
-@media (max-width:960px){
+/* 「サービス」短縮＋余白圧縮により14pxのまま1000pxまでフルナビ表示（iPad横対応） */
+@media (max-width:1000px){
   .nav-toggle{display:flex}
   .header-cta{display:none}
   .gnav{
