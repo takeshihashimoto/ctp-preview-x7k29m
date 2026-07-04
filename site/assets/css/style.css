@@ -80,7 +80,7 @@ ul{list-style:none}
   display:flex;align-items:center;gap:24px;height:72px;
 }
 .logo{display:flex;align-items:center;flex-shrink:0}
-.logo img{height:34px;width:auto}
+.logo img{height:44px;width:auto}
 .gnav{margin-left:auto}
 .gnav ul{display:flex;align-items:center;gap:26px}
 .gnav a{
@@ -168,7 +168,9 @@ ul{list-style:none}
 /* ---------- service ---------- */
 .service{background:var(--cream)}
 .sec-head{margin-bottom:48px}
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
+.card-grid .svc-card{grid-column:span 2}
+.card-grid .svc-card:nth-child(4){grid-column:2/span 2} /* 2段目2枚を中央寄せ */
 .svc-card{
   background:#fff;border-radius:var(--radius-card);
   box-shadow:var(--shadow-card);
@@ -317,7 +319,7 @@ ul{list-style:none}
   display:flex;justify-content:space-between;align-items:center;
   gap:24px 40px;flex-wrap:wrap;margin-bottom:34px;
 }
-.footer-logo img{height:26px;width:auto}
+.footer-logo img{height:32px;width:auto}
 .footer-services{display:flex;gap:8px 28px;flex-wrap:wrap;align-items:center}
 .footer-services a{
   font-size:14px;font-weight:500;color:var(--ink-2);
@@ -347,6 +349,8 @@ ul{list-style:none}
 }
 @media (max-width:900px){
   .card-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .card-grid .svc-card{grid-column:auto}
+  .card-grid .svc-card:nth-child(4){grid-column:auto}
   .results-grid{grid-template-columns:repeat(2,1fr)}
   .about-inner{grid-template-columns:1fr;gap:40px}
   .about-art{order:-1;max-width:520px;margin:0 auto}
@@ -375,7 +379,7 @@ ul{list-style:none}
 @media (max-width:768px){
   .section{padding:64px 0}
   .header-inner{height:64px;gap:12px}
-  .logo img{height:28px}
+  .logo img{height:36px}
   .gnav{top:64px}
   .hero{padding:120px 0 72px}
   .hero-art{
