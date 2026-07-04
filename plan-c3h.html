@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>C-3h案 FVパターン | コミクスTOPリデザイン案</title>
+<title>確定版（C-3h×案3）| コミクスTOPリデザイン</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -127,8 +127,8 @@ ul{list-style:none}
 }
 .hero-art{
   position:absolute;top:0;right:0;bottom:0;width:56%;
-  background-color:#F8F5FC; /* fallback while hero-c3.png is being generated */
-  background-image:url("assets/hero-c3h.png");
+  background-color:#F8F5FC;
+  background-image:url("assets/hero-c3.png"); /* ボス決定: plan-c3のFVを採用 */
   background-size:cover;background-position:center right;background-repeat:no-repeat;
   -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 30%,#000 60%);
   mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 30%,#000 60%);
@@ -179,7 +179,9 @@ ul{list-style:none}
 /* ---------- service ---------- */
 .service{background:var(--cream)}
 .sec-head{margin-bottom:48px}
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
+.svc-card{grid-column:span 2}
+.svc-card:nth-child(4){grid-column:2/span 2} /* 2段目（2枚）を中央寄せ */
 .svc-card{
   background:#fff;border-radius:var(--radius-card);
   box-shadow:var(--shadow-card);
@@ -224,6 +226,16 @@ ul{list-style:none}
 .svc-card--purple .svc-tag{
   color:var(--purple);background:rgba(108,75,158,.08);border-color:rgba(108,75,158,.3);
 }
+.svc-card--yellow{--accent:var(--yellow)}
+.svc-card--yellow .svc-tag{
+  color:#A67C00;background:rgba(245,193,59,.12);border-color:rgba(245,193,59,.45);
+}
+.svc-card--orange{--accent:var(--orange)}
+.svc-card--orange .svc-tag{
+  color:var(--orange-deep);background:rgba(240,102,43,.08);border-color:rgba(240,102,43,.3);
+}
+/* リンク先なしのカード（記載のみ）: ホバーで浮かせない */
+.svc-card--static:hover{box-shadow:var(--shadow-card);transform:none}
 
 /* ---------- results ---------- */
 .results{background:#fff}
@@ -266,7 +278,7 @@ ul{list-style:none}
 .about-art{
   width:100%;aspect-ratio:4/3;border-radius:var(--radius-card);
   background-color:#FFFFFF;
-  background-image:url("assets/about-c2.png");
+  background-image:url("assets/about-c5.png"); /* ボス決定: 案3 人とAIの握手 */
   background-size:cover;background-position:center;background-repeat:no-repeat;
   box-shadow:var(--shadow-card);
   border:1px solid rgba(42,46,53,.08);
@@ -352,6 +364,8 @@ ul{list-style:none}
 }
 @media (max-width:900px){
   .card-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .svc-card{grid-column:auto}
+  .svc-card:nth-child(4){grid-column:auto}
   .results-grid{grid-template-columns:repeat(2,1fr)}
   .about-inner{grid-template-columns:1fr;gap:40px}
   .about-art{order:-1;max-width:520px;margin:0 auto}
@@ -475,7 +489,7 @@ ul{list-style:none}
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-label">SERVICE</span>
-      <h2 class="sec-title">3つの事業で、企業のAI活用を支える</h2>
+      <h2 class="sec-title">5つの事業で、企業の成長を支える</h2>
     </div>
     <div class="card-grid">
       <a class="svc-card svc-card--magenta" href="https://www.comix.co.jp/academy_cp/">
@@ -496,6 +510,16 @@ ul{list-style:none}
         <p class="svc-body">インハウスでのマーケティング組織を強化したい企業様に、短期解決型と長期育成型のサービスをご用意。組織のフェーズに合わせ適切なソリューションを提案します。</p>
         <p class="svc-name"><img src="assets/digipara-logo.png" alt="デジパラ" class="svc-logo"></p>
       </a>
+      <article class="svc-card svc-card--yellow svc-card--static">
+        <span class="svc-tag">経営のAI活用</span>
+        <h3 class="svc-title">経営者とマンツーマンで、AI活用を実践まで伴走</h3>
+        <p class="svc-body">経営者・代表取締役限定のマンツーマン型AI活用支援プログラム「生成AI活用顧問」。CEOとCIOが自ら伴走し、最新AIツールの選定から実務適用、ROI最大化までを段階的に支援します。277社の支援実績に基づく、&#8220;研修で終わらない&#8221;実践型の導入が特長です。</p>
+      </article>
+      <article class="svc-card svc-card--orange svc-card--static">
+        <span class="svc-tag">営業支援</span>
+        <h3 class="svc-title">決裁者とのご縁が、次の受注をつくる</h3>
+        <p class="svc-body">経営者限定の少人数会食や決裁者マッチングを通じて、信頼に基づく新規開拓をご支援。代表への経営相談と人脈づくりを組み合わせた「bondプレミアム」「顧問契約」「鈴木顧問light」の3つのプログラムをご用意しています。</p>
+      </article>
     </div>
   </div>
 </section>
@@ -550,7 +574,7 @@ ul{list-style:none}
         <p class="about-sign"><span class="sign-company">株式会社コミクス</span>代表取締役社長　鈴木章裕</p>
         <a href="https://www.comix.co.jp/mission/" class="pill pill-ghost">Mission詳細</a>
       </div>
-      <div class="about-art" role="img" aria-label="ご縁をつなぐ抽象イラスト"></div>
+      <div class="about-art" role="img" aria-label="人とAIの握手の抽象イラスト"></div>
     </div>
   </div>
 </section>
@@ -625,7 +649,7 @@ ul{list-style:none}
   </div>
 </footer>
 
-<div class="mock-badge" aria-hidden="true">DESIGN MOCK — C-3h案</div>
+<div class="mock-badge" aria-hidden="true">DESIGN MOCK — 確定版</div>
 
 <script>
 (function(){
