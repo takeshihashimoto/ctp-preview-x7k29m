@@ -321,13 +321,15 @@ ul{list-style:none}
   gap:24px 40px;flex-wrap:wrap;margin-bottom:34px;
 }
 .footer-logo img{height:32px;width:auto}
-.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:13px}
+.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .footer-sns{
-  display:inline-flex;align-items:center;gap:7px;
+  display:inline-flex;align-items:center;gap:8px;
   font-size:14px;font-weight:500;color:var(--ink-2);
-  transition:color .25s ease;
+  border:1px solid rgba(42,46,53,.16);border-radius:99px;
+  padding:8px 16px;line-height:1;
+  transition:color .25s ease,border-color .25s ease;
 }
-.footer-sns:hover{color:var(--orange)}
+.footer-sns:hover{color:var(--orange);border-color:var(--orange)}
 .footer-sns svg{flex:none;display:block}
 .footer-services{display:flex;gap:8px 28px;flex-wrap:wrap;align-items:center}
 .footer-services a{
