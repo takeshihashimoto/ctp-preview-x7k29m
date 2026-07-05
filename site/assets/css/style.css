@@ -170,6 +170,7 @@ ul{list-style:none}
 .sec-head{margin-bottom:48px}
 .card-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
 .card-grid .svc-card{grid-column:span 2}
+.svc-card{scroll-margin-top:100px}
 .card-grid .svc-card:nth-child(4){grid-column:2/span 2} /* 2段目2枚を中央寄せ */
 .svc-card{
   background:#fff;border-radius:var(--radius-card);
